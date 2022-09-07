@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/heyujiang/hapis/protogen-go/user/v1";
+
+import "proto/common/v1/common.proto";
+
+service User {
+  rpc Login(UserLoginReq) returns (common.Result) {}
+  rpc GetUserInfo(GetUserInfoReq) returns (GetUserInfoResp){}
+}
+
+message UserLoginReq {
+  string UserName = 1;
+  string PassWord = 2;
+}
+
+message GetUserInfoReq{
+  int32 Id = 1;
+}
+
+message GetUserInfoResp{
+    common.Result Result = 1;
+    UserInfo UserInfo = 2;
+}
+
+message UserInfo {
+  int32 Id = 1;
+  string Name = 2;
+}

@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package common;
+
+option go_package="github.com/heyujiang/hapis/protogen-go/common/v1";
+
+message Result {
+  StatusCode Code = 1;
+  string Msg = 2;
+}
+
+enum StatusCode {
+  Invalid = 0;
+  Success = 1;
+  Fail = 2;
+}
