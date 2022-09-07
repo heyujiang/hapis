@@ -1,0 +1,27 @@
+syntax="proto3";
+
+package product;
+
+option go_package="github.com/heyujiang/hapis/protogen-go/product/v1";
+
+import "proto/common/v1/common.proto";
+
+service Product {
+  rpc ProductInfo(ProductInfoReq) returns (ProductInfoResp);
+}
+
+message ProductInfoReq {
+  int32 id = 1;
+}
+
+message ProductInfoResp {
+  common.Result Result = 1;
+  ProductInfo ProductInfo = 2;
+}
+
+message ProductInfo {
+  int32 id = 1;
+  string sku = 2;
+  string title = 3;
+  double price = 4;
+}
